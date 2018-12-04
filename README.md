@@ -1,1 +1,3 @@
 # fluent-bit
+
+The journey begins ...
