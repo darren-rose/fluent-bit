@@ -20,7 +20,7 @@ data:
 
     @INCLUDE input-kubernetes.conf
     @INCLUDE filter-stdout.conf
-    @INCLUDE output-file.conf
+    @INCLUDE output-stdout.conf
 
   input-kubernetes.conf: |
     [INPUT]
@@ -38,11 +38,10 @@ data:
         Name                stdout
         Match               *
 
-  output-file.conf: |
+  output-stdout.conf: |
     [OUTPUT]
-        Name            file
+        Name            stdout
         Match           *
-        Path            output.log
 
   parsers.conf: |
     [PARSER]
