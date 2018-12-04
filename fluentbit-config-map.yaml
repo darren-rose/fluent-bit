@@ -19,7 +19,7 @@ data:
         HTTP_Port     2020
 
     @INCLUDE input-kubernetes.conf
-    @INCLUDE filter-kubernetes.conf
+    @INCLUDE filter-stdout.conf
     @INCLUDE output-file.conf
 
   input-kubernetes.conf: |
@@ -33,13 +33,10 @@ data:
         Skip_Long_Lines   On
         Refresh_Interval  10
 
-  filter-kubernetes.conf: |
+  filter-stdout.conf: |
     [FILTER]
-        Name                kubernetes
-        Match               kube.*
-        Kube_URL            https://kubernetes.default.svc.cluster.local:443
-        Merge_Log           On
-        K8S-Logging.Parser  On
+        Name                stdout
+        Match               *
 
   output-file.conf: |
     [OUTPUT]
